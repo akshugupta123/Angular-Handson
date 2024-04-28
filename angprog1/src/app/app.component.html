@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        /* Basic styling for the navigation bar */
+        nav {
+            background-color: #37d3fa;
+            color: #1d1c1c;
+            padding: 10px;
+        }
+        nav a {
+            color: #131212;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        /* Styling for the avatar */
+        .avatar-icon {
+            width: 50px; /* Adjust the size as needed */
+            height: 30px; /* Adjust the size as needed */
+            background-image: url('https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png'); /* Online image URL */
+            background-size: cover;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+            border-radius: 50%; /* Make it circular */
+        }
+        /* Styling for the button */
+        .nav-button {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to shoppingmall</h1>
+
+    <nav>
+        <!-- Links to various sections -->
+        <span class="avatar-icon"></span>
+        <span>&nbsp;&nbsp;&nbsp;</span> <!-- Non-breaking space for gap -->
+        <span>Customer Manager</span>&nbsp;&nbsp;
+        <button class="nav-button" routerLink="/about">About</button>
+        <button class="nav-button" routerLink="/customers">Customers</button>
+        <button class="nav-button" routerLink="/orders">Orders</button>
+        <button class="nav-button" routerLink="/login">Login</button>
+    </nav>
+
+    <router-outlet></router-outlet> <!-- Add router-outlet here -->
+</body>
+</html>

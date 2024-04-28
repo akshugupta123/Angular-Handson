@@ -1,0 +1,7 @@
+<div *ngFor="let customer of customers" class="card">
+    <div class="customer-name">{{ customer.firstName }} {{ customer.lastName }}</div>
+    <div>{{ customer.address }}, {{ customer.city }}, {{ customer.state }}</div>
+    <button (click)="onEditCustomer(customer)">Edit</button>
+    <button (click)="onDeleteCustomer(customer.id)">Delete</button>
+  </div>
+  

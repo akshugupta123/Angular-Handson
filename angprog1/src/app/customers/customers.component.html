@@ -1,0 +1,64 @@
+<div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+  <input type="text" placeholder="Search Name" (input)="handleSearch($event)" style="margin-right: 10px;">
+</div>
+
+<h2>Customer Details</h2>
+
+<form *ngIf="!editingCustomer" (submit)="addCustomer()">
+  <!-- Include an input field for the ID -->
+  <input type="number" placeholder="ID" [(ngModel)]="newCustomer.id" name="id">
+  
+  <input type="text" placeholder="First Name" [(ngModel)]="newCustomer.firstName" name="firstName" required>
+  <input type="text" placeholder="Last Name" [(ngModel)]="newCustomer.lastName" name="lastName" required>
+  <input type="text" placeholder="Address" [(ngModel)]="newCustomer.address" name="address" required>
+  <input type="text" placeholder="City" [(ngModel)]="newCustomer.city" name="city" required>
+  <input type="text" placeholder="State" [(ngModel)]="newCustomer.state" name="state" required>
+  <button type="submit">Add Customer</button>
+</form>
+
+<form *ngIf="editingCustomer" (submit)="updateCustomer()">
+  <!-- Include an input field for the ID -->
+  <input type="number" placeholder="ID" [(ngModel)]="editingCustomer.id" name="id">
+  
+  <input type="text" placeholder="First Name" [(ngModel)]="editingCustomer.firstName" name="firstName" required>
+  <input type="text" placeholder="Last Name" [(ngModel)]="editingCustomer.lastName" name="lastName" required>
+  <input type="text" placeholder="Address" [(ngModel)]="editingCustomer.address" name="address" required>
+  <input type="text" placeholder="City" [(ngModel)]="editingCustomer.city" name="city" required>
+  <input type="text" placeholder="State" [(ngModel)]="editingCustomer.state" name="state" required>
+  <button type="submit">Update Customer</button>
+  <button type="button" (click)="cancelEdit()">Cancel</button>
+</form>
+
+<h2>Customer Orders</h2>
+
+<div *ngFor="let customer of filteredCustomers">
+  <h3>{{ customer.firstName }} {{ customer.lastName }}'s Orders</h3>
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <button (click)="viewOrders(customer)">View Orders</button>
+  </div>
+  <ul *ngIf="customer.orders.length > 0">
+    <li *ngFor="let order of customer.orders">
+      Order ID: {{ order.id }} | Total: {{ order.total }}
+    </li>
+  </ul>
+  <p *ngIf="customer.orders.length === 0">No orders found for this customer.</p>
+</div>
+
+<h2>Customer View</h2>
+
+<div>
+  <button (click)="viewMode = 'list'">List View</button>
+  <button (click)="viewMode = 'card'">Card View</button>
+</div>
+
+<div *ngIf="viewMode === 'list'">
+  <app-list-view [customers]="filteredCustomers"
+                 (editCustomer)="editCustomer($event)"
+                 (deleteCustomer)="deleteCustomer($event)"></app-list-view>
+</div>
+
+<div *ngIf="viewMode === 'card'">
+  <app-card-view [customers]="filteredCustomers"
+                 (editCustomer)="editCustomer($event)"
+                 (deleteCustomer)="deleteCustomer($event)"></app-card-view>
+</div>

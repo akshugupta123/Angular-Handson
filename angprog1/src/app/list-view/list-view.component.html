@@ -1,0 +1,9 @@
+<ul>
+    <li *ngFor="let customer of customers">
+      <div class="customer-name">{{ customer.firstName }} {{ customer.lastName }}</div>
+      <div class="customer-location">{{ customer.address }}, {{ customer.city }}, {{ customer.state }}</div>
+      <button class="edit-button" (click)="onEditCustomer(customer)">Edit</button>
+      <button (click)="onDeleteCustomer(customer.id)">Delete</button>
+    </li>
+  </ul>
+  

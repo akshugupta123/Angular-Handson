@@ -1,0 +1,22 @@
+/* Card View Styling */
+.customer-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* List View Styling */
+.customer-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.customer-table th, .customer-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+.customer-table th {
+    background-color: #f2f2f2;
+}

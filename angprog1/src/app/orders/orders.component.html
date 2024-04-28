@@ -1,0 +1,13 @@
+<h1>Orders</h1>
+
+<div *ngIf="customer">
+  <h2>{{ customer.firstName }} {{ customer.lastName }}'s Orders</h2>
+  <ul *ngIf="customer.orders && customer.orders.length > 0">
+    <li *ngFor="let order of customer.orders">
+      Order ID: {{ order.id }} | Total: {{ order.total }}
+    </li>
+  </ul>
+  <p *ngIf="!customer.orders || customer.orders.length === 0">No orders found for this customer.</p>
+</div>
+
+<a href="customers.html">Back to Customers</a>

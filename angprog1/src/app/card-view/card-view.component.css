@@ -1,0 +1,31 @@
+/* card-view.component.css */
+.card {
+    border: 1px solid #ccc; /* Add a border around the card */
+    border-radius: 5px; /* Add border radius */
+    padding: 15px; /* Add padding to the card */
+    margin-bottom: 15px; /* Add margin at the bottom of each card */
+  }
+  
+  .customer-name {
+    font-weight: bold; /* Make customer name bold */
+  }
+  
+  .customer-address {
+    font-style: italic; /* Make customer address italic */
+  }
+  
+  button {
+    padding: 8px 12px; /* Add padding to buttons */
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    border: none; /* Remove button border */
+    border-radius: 4px; /* Add border radius */
+    cursor: pointer; /* Add cursor pointer */
+    transition: background-color 0.3s; /* Add transition for smooth hover effect */
+    margin-right: 8px; /* Add margin to the right of each button */
+  }
+  
+  button:hover {
+    background-color: #45a049; /* Darker green color on hover */
+  }
+  
